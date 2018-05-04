@@ -1,0 +1,15 @@
+#pragma once
+
+/* meta */
+
+#define UNI_PACKAGE "@PROJECT_NAME@"
+#define UNI_VERSION "@VERSION_MAJOR@.@VERSION_MINOR@.@VERSION_PATCH@"
+
+/* compile tests for keyword, lib, function, ... */
+
+#cmakedefine UNI_HAVE_XSI_STRERROR_R 1
+
+/* gflags */
+
+#cmakedefine UNI_GFLAGS_NAMESPACE @UNI_GFLAGS_NAMESPACE@
+#cmakedefine UNI_UNUSUAL_GFLAGS_NAMESPACE 1
