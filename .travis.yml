@@ -21,7 +21,6 @@ addons:
       - g++-4.9
       - cmake
       - libboost-all-dev
-      - libdouble-conversion-dev
       - libgflags-dev
       - libgtest-dev
       - libicu-dev
