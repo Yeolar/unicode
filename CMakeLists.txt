@@ -9,7 +9,7 @@ project(unicu)
 
 cmake_minimum_required(VERSION 3.2)
 
-set(CMAKE_MODULE_PATH "${PROJECT_SOURCE_DIR}/cmake-scripts")
+set(CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake-scripts)
 
 # Set project version
 set(VERSION_MAJOR 1)
@@ -22,6 +22,7 @@ find_package(Threads REQUIRED)
 find_package(Boost REQUIRED COMPONENTS regex)
 find_package(GFlags REQUIRED)
 find_package(ICU REQUIRED)
+find_package(Accelerator REQUIRED)
 
 # Optional packages
 find_package(GTest)
@@ -34,23 +35,20 @@ set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 set(CMAKE_VERBOSE_MAKEFILE OFF)
 
-# Add external
-include(accelerator)
-
 # Link libraries
 link_libraries(
-    ${accelerator_STATIC_LIBRARIES}
     ${CMAKE_THREAD_LIBS_INIT}
     ${CMAKE_DL_LIBS}
     ${Boost_LIBRARIES}
     ${GFLAGS_LIBRARIES}
     ${ICU_LIBRARIES}
     ${ICU_I18N_LIBRARIES}
+    ${ACCELERATOR_LIBRARY}
 )
 
 include_directories(
-    ${accelerator_INCLUDE_DIR}
     ${PROJECT_SOURCE_DIR}
+    ${ACCELERATOR_INCLUDE_DIR}
 )
 
 # Check and setup configurations
@@ -84,8 +82,8 @@ if(GFLAGS_FOUND)
 endif()
 
 configure_file(
-    "${PROJECT_SOURCE_DIR}/unicu/unicu-config.h.in"
-    "${PROJECT_SOURCE_DIR}/unicu/unicu-config.h"
+    ${PROJECT_SOURCE_DIR}/unicu/unicu-config.h.in
+    ${PROJECT_SOURCE_DIR}/unicu/unicu-config.h
 )
 
 # Work on all sub directories
@@ -124,12 +122,13 @@ endif()
 
 # Pack
 include(InstallRequiredSystemLibraries)
+set(CPACK_GENERATOR "DEB;TXZ")
 set(CPACK_PACKAGE_VERSION_MAJOR "${VERSION_MAJOR}")
 set(CPACK_PACKAGE_VERSION_MINOR "${VERSION_MINOR}")
 set(CPACK_PACKAGE_VERSION_PATCH "${VERSION_PATCH}")
-set(CPACK_GENERATOR "DEB")
-set(CPACK_SOURCE_GENERATOR "TGZ")
-set(CPACK_PACKAGE_DESCRIPTION "unicu: unicode utilities of rddoc.")
 set(CPACK_PACKAGE_CONTACT "rdd@rddoc.com")
+set(CPACK_PACKAGE_DESCRIPTION_SUMMARY "unicu: unicode utilities of rddoc.")
+set(CPACK_DEBIAN_PACKAGE_ARCHITECTURE "amd64")
+set(CPACK_DEBIAN_PACKAGE_DEPENDS "libboost-all-dev,libgflags-dev,libicu-dev,accelerator")
 include(CPack)
 

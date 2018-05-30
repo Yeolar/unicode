@@ -4,7 +4,6 @@ file(GLOB UNICU_SRCS *.cpp)
 file(GLOB UNICU_HDRS *.h)
 
 add_library(unicu OBJECT ${UNICU_SRCS})
-add_dependencies(unicu accelerator)
 
 install(FILES ${UNICU_HDRS} DESTINATION include/unicu)
 

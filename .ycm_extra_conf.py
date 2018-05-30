@@ -46,7 +46,7 @@ flags = [
 'c++',
 
 '-isystem', ROOT,
-'-isystem', os.path.join(ROOT, 'build/accelerator/src/accelerator'),
+'-isystem', os.path.join(ROOT, 'build/accelerator/accelerator/include'),
 '-isystem', '/usr/local/include',
 '-isystem', '/usr/include',
 '-isystem', '/usr/include/c++/4.9.2',
