@@ -16,6 +16,8 @@
 
 #pragma once
 
+#include <gflags/gflags.h>
+
 #include "unicu/unicu-config.h"
 
 #if UNI_UNUSUAL_GFLAGS_NAMESPACE
