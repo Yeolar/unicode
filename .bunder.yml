@@ -7,4 +7,4 @@ build:
     path: './build'
 
 depend:
-    - accelerator-1.2.3
+    - accelerator-1.2.4
