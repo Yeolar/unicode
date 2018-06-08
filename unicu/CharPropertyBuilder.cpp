@@ -14,10 +14,7 @@
  * limitations under the License.
  */
 
-#include <gflags/gflags.h>
-
-#include "accelerator/Portability.h"
-#include "unicu/unicu-config.h"
+#include "unicu/Portability.h"
 #include "unicu/CharProperty.h"
 
 using namespace unicu;
