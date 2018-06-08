@@ -24,7 +24,7 @@ DEFINE_string(output, "char.prop", "output path");
 DEFINE_string(encoding, "ucs2", "encoding (ucs2 or gbk)");
 
 int main(int argc, char* argv[]) {
-  gflags::SetVersionString(ACC_VERSION);
+  gflags::SetVersionString(UNI_VERSION);
   gflags::SetUsageMessage("Usage : ./CharPropertyBuilder");
   gflags::ParseCommandLineFlags(&argc, &argv, true);
 

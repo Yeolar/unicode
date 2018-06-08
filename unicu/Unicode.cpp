@@ -100,7 +100,7 @@ namespace unicode {
  */
 bool isAlpha(char32_t cp) {
   if (cp < 0x80) return isalpha(cp);
-#if ACC_UNICODE_JAVA_API
+#if UNI_UNICODE_JAVA_API
   return u_isalpha(cp);
 #else
   return u_isUAlphabetic(cp);
@@ -117,7 +117,7 @@ bool isAlpha(char32_t cp) {
  */
 bool isLower(char32_t cp) {
   if (cp < 0x80) return islower(cp);
-#if ACC_UNICODE_JAVA_API
+#if UNI_UNICODE_JAVA_API
   return u_islower(cp);
 #else
   return u_isULowercase(cp);
@@ -134,7 +134,7 @@ bool isLower(char32_t cp) {
  */
 bool isUpper(char32_t cp) {
   if (cp < 0x80) return isupper(cp);
-#if ACC_UNICODE_JAVA_API
+#if UNI_UNICODE_JAVA_API
   return u_isupper(cp);
 #else
   return u_isUUppercase(cp);
@@ -197,7 +197,7 @@ bool isXDigit(char32_t cp) {
  */
 bool isAlnum(char32_t cp) {
   if (cp < 0x80) return isalnum(cp);
-#if ACC_UNICODE_JAVA_API
+#if UNI_UNICODE_JAVA_API
   return u_isalnum(cp);
 #else
   return u_hasBinaryProperty(cp, UCHAR_POSIX_ALNUM);
@@ -270,7 +270,7 @@ bool isJavaSpace(char32_t cp) {
  *  = kCFCharacterSetWhitespaceAndNewline - 200b
  */
 bool isWhitespace(char32_t cp) {
-#if ACC_UNICODE_JAVA_API
+#if UNI_UNICODE_JAVA_API
   return u_isWhitespace(cp);
 #else
   return u_isUWhiteSpace(cp);
@@ -319,7 +319,7 @@ bool isBlank(char32_t cp) {
  */
 bool isCntrl(char32_t cp) {
   if (cp < 0x80) return iscntrl(cp);
-#if ACC_UNICODE_JAVA_API
+#if UNI_UNICODE_JAVA_API
   return u_iscntrl(cp);
 #else
   return u_charType(cp)==U_CONTROL_CHAR;
@@ -346,7 +346,7 @@ bool isISOControl(char32_t cp) {
  */
 bool isGraph(char32_t cp) {
   if (cp < 0x80) return isgraph(cp);
-#if ACC_UNICODE_JAVA_API
+#if UNI_UNICODE_JAVA_API
   return u_isgraph(cp);
 #else
   return u_hasBinaryProperty(cp, UCHAR_POSIX_GRAPH);
@@ -361,7 +361,7 @@ bool isGraph(char32_t cp) {
  */
 bool isPrint(char32_t cp) {
   if (cp < 0x80) return isprint(cp);
-#if ACC_UNICODE_JAVA_API
+#if UNI_UNICODE_JAVA_API
   return u_isprint(cp);
 #else
   return u_hasBinaryProperty(cp, UCHAR_POSIX_PRINT);
