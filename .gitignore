@@ -32,4 +32,5 @@
 *.app
 
 /build/
+/build-deps/
 /unicu/unicu-config.h

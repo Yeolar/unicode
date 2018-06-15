@@ -12,8 +12,12 @@ if(UNICU_INCLUDE_DIR)
   set(UNICU_FIND_QUIETLY TRUE)
 endif()
 
-find_path(UNICU_INCLUDE_DIR unicu/unicu-config.h PATHS ${PROJECT_BINARY_DIR}/unicu/unicu/include)
-find_library(UNICU_LIBRARY unicu PATHS ${PROJECT_BINARY_DIR}/unicu/unicu/lib)
+find_path(UNICU_INCLUDE_DIR unicu/unicu-config.h PATHS
+    ${PROJECT_BINARY_DIR}/unicu/unicu/include
+    ${PROJECT_BINARY_DIR}-deps/unicu/unicu/include)
+find_library(UNICU_LIBRARY unicu PATHS
+    ${PROJECT_BINARY_DIR}/unicu/unicu/lib
+    ${PROJECT_BINARY_DIR}-deps/unicu/unicu/lib)
 
 # handle the QUIETLY and REQUIRED arguments and set UNICU_FOUND to TRUE 
 # if all listed variables are TRUE
